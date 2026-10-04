@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harcharan Singh Benevolent Bursary | NTU CCDS</title>
+  <style>
+    :root {
+      --ntu-blue: #002b66;
+      --ntu-red: #c8102e;
+      --ntu-navy-dark: #001738;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      display: flex;
+      flex-direction: column;
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .logo-badge .badge-top {
+      background-color: var(--ntu-blue);
+      color: var(--white);
+      padding: 4px 6px;
+      font-size: 0.85rem;
+    }
+
+    .logo-badge .badge-bottom {
+      background-color: var(--ntu-red);
+      color: var(--white);
+      padding: 4px 6px;
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ntu-blue);
+      border-left: 2px solid var(--border-color);
+      padding-left: 1rem;
+      line-height: 1.2;
+    }
+
+    .nav-cta {
+      display: inline-block;
+      background-color: var(--ntu-red);
+      color: var(--white);
+      padding: 0.55rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: #a50d26;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--ntu-navy-dark) 0%, var(--ntu-blue) 100%);
+      color: var(--white);
+      padding: 4.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-subtitle-top {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      color: #93c5fd;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--ntu-red);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      box-shadow: 0 4px 14px rgba(200, 16, 46, 0.4);
+    }
+
+    .btn-primary:hover {
+      background-color: #a50d26;
+      transform: translateY(-1px);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-block {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .section-block h2 {
+      font-size: 1.6rem;
+      color: var(--ntu-blue);
+      margin-bottom: 1.25rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .section-block p {
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Video Embed */
+    .video-wrapper {
+      margin-top: 1.5rem;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 6px;
+      background-color: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Testimonials Grid */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .testimonial-card {
+      background-color: var(--bg-light);
+      border-left: 4px solid var(--ntu-blue);
+      padding: 1.5rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .testimonial-card h3 {
+      font-size: 1.15rem;
+      color: var(--ntu-navy-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial-card .role {
+      font-size: 0.85rem;
+      color: var(--ntu-red);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .testimonial-card p {
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* CTA Box */
+    .cta-banner {
+      background: linear-gradient(to right, var(--ntu-blue), var(--ntu-navy-dark));
+      color: var(--white);
+      padding: 2.5rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-banner h2 {
+      color: var(--white);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      padding: 0;
+    }
+
+    .cta-banner p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem auto;
+      color: #cbd5e1;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      padding: 3rem 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .footer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-container {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col p {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .footer-col a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    .footer-col a:hover {
+      text-decoration: underline;
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 2rem auto 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1e293b;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand-container">
+        <div class="logo-badge">
+          <div class="badge-top">NTU</div>
+          <div class="badge-bottom">Alumni</div>
+        </div>
+        <div class="brand-title">
+          College of Computing<br>and Data Science
+        </div>
+      </a>
+      <a href="https://bbis.ntu.edu.sg/LG-26Q126_emHarcharanSBB" target="_blank" rel="noopener noreferrer" class="nav-cta">
+        Make a Contribution &rarr;
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-subtitle-top">NTU College of Computing and Data Science</div>
+      <h1>Harcharan Singh Benevolent Bursary</h1>
+      <p>Supporting CCDS students to realise their potential and shape the future of computing.</p>
+      <a href="https://bbis.ntu.edu.sg/LG-26Q126_emHarcharanSBB" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Make a Contribution &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Honouring Legacy -->
+    <section class="section-block">
+      <h2>Honouring a Legacy. Supporting Future Generations.</h2>
+      <p>
+        The Harcharan Singh Benevolent Bursary was established in memory of the late Professor Harcharan Singh (1941–2020), whose leadership helped shape the beginnings of computing education at NTU and widen opportunities for those who followed.
+      </p>
+      <p>
+        The bursary provides financial assistance and encouragement to CCDS students throughout their academic journey, ensuring that financial circumstances do not stand in the way of talent, potential and perseverance. Through this support, it extends Professor Singh's commitment to education and student welfare, enabling new generations of students to pursue their potential and help shape the future of computing.
+      </p>
+    </section>
+
+    <!-- About Prof Singh -->
+    <section class="section-block">
+      <h2>About Professor Harcharan Singh</h2>
+      <p>
+        Professor Harcharan Singh was the Founding Dean of the School of Applied Science (SAS), established in 1988. SAS marked the beginnings of computing education at NTU, introducing Singapore's first Bachelor of Applied Science in Computer Technology and welcoming a pioneer degree cohort of approximately 140 students.
+      </p>
+      <p>
+        The School laid the foundations for what would later evolve into the School of Computer Engineering (SCE), the School of Computer Science and Engineering (SCSE), and eventually the College of Computing and Data Science (CCDS).
+      </p>
+      <p>
+        Professor Singh's vision, leadership and deep care for students helped shape the early development of NTU computing and the academic community that has grown from it.
+      </p>
+    </section>
+
+    <!-- Video & Reflections -->
+    <section class="section-block">
+      <h2>Remembering Professor Harcharan Singh</h2>
+      <p>Hear from those who knew Professor Singh as they reflect on his leadership, character, and contributions to the NTU computing community.</p>
+      
+      <div class="video-wrapper">
+        <!-- Embedded tribute video -->
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=PL" 
+          title="Professor Harcharan Singh Tribute" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <h3>Angela Goh</h3>
+          <div class="role">Emeritus Professor, CCDS</div>
+          <p>
+            "I have had the privilege of working under Prof Singh for nearly 15 years. He was a highly principled person and expected his staff to behave likewise. He wanted us to give of our best for every student... He had great foresight in crafting the curriculum and supporting new areas of research. He will always be remembered as a pioneer at NTU and in Singapore's electronics and IT industry."
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <h3>Professor Seah Hock Soon</h3>
+          <div class="role">Pioneer Faculty Member</div>
+          <p>
+            "In 1988, I was one of six pioneers who helped establish the School of Applied Science (SAS) together with our founding Dean, Professor Harcharan Singh... Professor Singh was a stern leader who struck fear in many staff and students, yet he cared deeply about their growth and wellbeing. Working closely with him taught me the value of leading with both discipline and compassion."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Section / Call-to-Action Banner -->
+    <section class="cta-banner">
+      <h2>Support Future Generations</h2>
+      <p>
+        Every contribution to the Harcharan Singh Benevolent Bursary helps reduce financial barriers for CCDS students, giving them greater confidence to pursue their education and realise their potential.
+      </p>
+      <p>
+        Led by the CCDS Alumni Association and supported by the College, fundraising initiatives in 2026 and 2027 will contribute towards building the bursary and extending its support to future generations of students.
+      </p>
+      <a href="https://bbis.ntu.edu.sg/LG-26Q126_emHarcharanSBB" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Make a Contribution &rarr;
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>College of Computing and Data Science (CCDS)</h4>
+        <p>Nanyang Technological University</p>
+        <p>50 Nanyang Avenue, Singapore 639798</p>
+        <p>Tel: <a href="tel:+6567911744">(65) 6791 1744</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Inquiries & Links</h4>
+        <p><a href="mailto:CCDS-undergrad@ntu.edu.sg">Full-Time Undergraduate Admissions</a></p>
+        <p><a href="https://www.ntu.edu.sg/computing" target="_blank" rel="noopener noreferrer">CCDS Official Portal</a></p>
+        <p><a href="https://www.ntu.edu.sg/giving/home" target="_blank" rel="noopener noreferrer">Give to NTU</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Nanyang Technological University. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
